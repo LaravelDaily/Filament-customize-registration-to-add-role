@@ -23,6 +23,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -44,6 +45,13 @@ class User extends Authenticatable implements FilamentUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /*protected static function booted(): void
+    {
+        static::creating(function (User $user) {
+            $user->role = 'user';
+        });
+    }*/
 
     public function canAccessPanel(Panel $panel): bool
     {
